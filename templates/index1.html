@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DermaDeep</title>
+    <!-- bootstrap cdn link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- custom css file link -->
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+
+<!-- header section starts -->
+<header class="fixed-top py-3">
+    <div class="container d-flex align-items-center justify-content-between">
+        <a href="#" class="logo">DermaDeep
+            <span><img src="static/Images/pngimg.com - virus_PNG20.png" alt="Logo" style="width: 40px; height: auto;"></span>
+        </a>
+        <div id="dermadeep-menu" class="fas fa-bars d-inline-block d-md-none"></div>
+        <nav class="dermadeep-nav">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#prevent">Skin Type & Disease</a>
+            <a href="#check">Check My Skin Type</a>
+            <a href="#experts">Our Team</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+</header>
+<!-- header section ends -->
+
+<!-- home section starts -->
+<section class="home" id="home">
+    <div class="container">
+        <div class="row min-vh-100 align-items-center pt-5">
+            <div class="col-md-6">
+                <img src="static/Images/istockphoto-1248674930-612x612-removebg-preview.png" class="w-100" alt="Skin Illustration">
+            </div>
+            <div class="col-md-6 content text-center text-md-start pl-md-5">
+                <span>Your skin is your best accessory</span>
+                <h3>Protect yourself from skin disease</h3>
+                <a href="#about" class="link-btn">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- home section ends -->
+
+<!-- about section starts -->
+<section class="about" id="about">
+    <div class="container">
+        <div class="row align-items-center flex-wrap-reverse">
+            <div class="col-md-6 content">
+                <h3>What are Skin Diseases?</h3>
+                <p>Skin diseases are conditions that affect your skin. These diseases may cause rashes, inflammation, itchiness or other skin changes. Some skin conditions may be genetic, while lifestyle factors may cause others. Treatment may include medications, creams or lifestyle changes.</p>
+                <a href="#prevent" class="link-btn">Learn More</a>
+            </div>
+            <div class="col-md-6">
+                <img src="static/Images/conifer-1127-removebg-preview.png" class="w-100" alt="Skin Illustration">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- about section ends -->
+
+<!-- prevent section starts -->
+<section class="prevent" id="prevent">
+    <h1 class="heading"><span>Skin Type & Diseases</span></h1>
+    <div class="container">
+        <div class="d-flex flex-wrap justify-content-center">
+            <div class="box p-4 m-2">
+                <img src="static/Images/dry.png" alt="">
+                <h3>Dry Skin</h3>
+                <p>Care tips and treatment suggestions for dry skin.</p>
+            </div>
+            <div class="box p-4 m-2">
+                <img src="static/Images/oily.png" alt="">
+                <h3>Oily Skin</h3>
+                <p>Care tips and treatment suggestions for oily skin.</p>
+            </div>
+            <div class="box p-4 m-2">
+                <img src="static/Images/Normal.png" alt="">
+                <h3>Normal Skin</h3>
+                <p>Care tips and treatment suggestions for normal skin.</p>
+            </div>
+            <div class="box p-4 m-2">
+                <img src="static/Images/Sensitive.png" alt="">
+                <h3>Sensitive Skin</h3>
+                <p>Care tips and treatment suggestions for sensitive skin.</p>
+            </div>
+            <div class="box p-4 m-2">
+                <img src="static/Images/acne.png" alt="">
+                <h3>Acne-prone Skin</h3>
+                <p>Care tips and treatment suggestions for acne-prone skin.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- prevent section ends -->
+
+<!-- check section starts -->
+<section class="check" id="check">
+    <h1 class="heading"><span>Check Your Skin Type</span></h1>
+    <form action="/predict" method="POST" enctype="multipart/form-data">
+        <center>
+            <input type="file" name="image" id="dermadeep-file" hidden onchange="document.getElementById('dermadeep-button').innerText = this.files[0].name" required>
+            <button type="button" id="dermadeep-button" onclick="document.getElementById('dermadeep-file').click()">Choose A File</button>
+        </center>
+        <br><br>
+        <center><button type="submit" id="submit-button">Submit</button></center>
+    </form>
+    {% if prediction %}
+        <center>
+            <h2>Prediction: {{ prediction }}</h2>
+            <img src="{{ image_url }}" alt="Uploaded Image" style="max-width: 300px; margin-top: 20px;" />
+        </center>
+    {% endif %}
+</section>
+<!-- check section ends -->
+
+<!-- experts section starts -->
+<section class="experts" id="experts">
+    <h1 class="heading">Meet Our <span>Team</span></h1>
+    <div class="container">
+        <div class="d-flex justify-content-center flex-wrap">
+            <div class="box">
+                <img src="static/Images/team1.png" alt="">
+                <h3>Akshay Chintala</h3>
+                <span>Founder & Developer</span>
+                <div class="share">
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- experts section ends -->
+
+<!-- contact section starts -->
+<section class="contact" id="contact">
+    <h1 class="heading"><span>Contact</span> Us</h1>
+    <div class="container">
+        <div class="row flex-wrap-reverse">
+            <div class="col-md-7 p-2">
+                <form>
+                    <input type="text" placeholder="Name" class="box">
+                    <input type="email" placeholder="Email" class="box" value="chintalaakshay030@gmail.com">
+                    <input type="number" placeholder="Number" class="box" value="7780674054">
+                    <textarea placeholder="Message" class="box" cols="30" rows="5"></textarea>
+                    <input type="submit" class="link-btn" value="Send Message">
+                </form>
+            </div>
+            <div class="col-md-5 p-2">
+                <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3831.974574146575!2d78.09796127521062!3d18.67240328743554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcc5e7200000001%3A0x94c8c6f2be36f101!2sNizamabad%2C%20Telangana%20503001!5e0!3m2!1sen!2sin!4v1699970000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- contact section ends -->
+
+
+<!-- footer section starts -->
+<section class="footer">
+    <div class="container">
+        <div class="d-flex flex-wrap justify-content-center text-center text-sm-start">
+            <div class="box p-3 m-2">
+                <h3>DermaDeep</h3>
+                <p>Your personal skin disease detection assistant.</p>
+            </div>
+            <div class="box p-3 m-2">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#prevent">Skin Type & Disease</a>
+                <a href="#check">Check My Skin Type</a>
+                <a href="#experts">Our Team</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="box p-3 m-2">
+                <h3>Contact Info</h3>
+                <a href="tel:7780674054">+91 7780674054</a>
+                <a href="mailto:chintalaakshay030@gmail.com">chintalaakshay030@gmail.com</a>
+            </div>
+        </div>
+        <div class="credit">Created by <span>Akshay Chintala</span> | All rights reserved</div>
+    </div>
+</section>
+<!-- footer section ends -->
+
+<!-- JS files -->
+<script src="static/main.js"></script>
+</body>
+</html>
