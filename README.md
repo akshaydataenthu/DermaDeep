@@ -61,7 +61,7 @@
 
 # 📁 Project Structure
 
-    dermascan/
+    dermadeep/
     │
     ├── static/
     │   ├── style.css
