@@ -43,6 +43,22 @@
 
 ---
 
+# 📸 Screenshots
+
+### disease types
+
+![types](https://instasize.com/p/d55043dc8b718679150cdf24919b8f2285fa7796c11fea05bc93f801618421d4) 
+
+### Prediction Page 
+ ![Predict](static/Images/predict_2.png)
+
+ ### result
+ ![result](static/Images/predict_3.png)
+
+
+---
+
+
 # 📁 Project Structure
 
     dermascan/
